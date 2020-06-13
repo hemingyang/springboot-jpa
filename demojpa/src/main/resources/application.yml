@@ -1,0 +1,17 @@
+server:
+  port: 9091
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/harry?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: rootroot
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    properties:
+      hibernate:
+        dialect: com.example.demojpa.util.MySQL5TableType
+        showSql: true
