@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 /**
  * 继承jpa
  */
-public interface AddressRepository extends JpaRepository<Address,Integer> {
+public interface AddressRepository extends JpaRepository<Address,Long> {
 
 
 }

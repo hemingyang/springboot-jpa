@@ -6,6 +6,8 @@ import com.example.demojpa.repository.AddressRepository;
 import com.example.demojpa.repository.DepartmentRepository;
 import com.example.demojpa.repository.EmployeeRepository;
 import com.example.demojpa.repository.RoleRepository;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +16,8 @@ import java.util.List;
 
  */
 @RestController
-@RequestMapping("/web")
+@RequestMapping("/api/web")
+@Api(value = "/api/web", tags = "/api/web")
 public class WebAddress {
 
 
@@ -28,7 +31,7 @@ public class WebAddress {
     private EmployeeRepository employeeRepository;
 
 
-
+    @ApiOperation(value = "addressAll",notes = "addressAll")
     @RequestMapping(value = "/addressAll",method = RequestMethod.GET )
     public List<Address> addressAll(){
 
@@ -72,9 +75,7 @@ public class WebAddress {
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
     public void deleteAddress(@PathVariable Long id) {
-       //强制类型转换
-         Integer ids= id.intValue();
-        addressRepository.deleteById(ids);
+        addressRepository.deleteById(id);
     }
 
 }
