@@ -14,4 +14,4 @@ spring:
     properties:
       hibernate:
         dialect: com.example.demojpa.util.MySQL5TableType
-        showSql: true
+    show-sql: true
