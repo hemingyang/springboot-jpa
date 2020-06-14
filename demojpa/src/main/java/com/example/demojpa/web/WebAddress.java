@@ -37,6 +37,13 @@ public class WebAddress {
 
         return  addressRepository.findAll();
     }
+    
+    @ApiOperation(value = "addresone",notes = "addresone")
+    @RequestMapping(value = "/addresone/{id}",method = RequestMethod.GET )
+    public Address addressone(@PathVariable Long id){
+
+        return  addressRepository.getOne(id);
+    }
 
 
     @RequestMapping(value = "/departmentAll",method = RequestMethod.GET)

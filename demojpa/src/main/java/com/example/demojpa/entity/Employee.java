@@ -2,6 +2,8 @@ package com.example.demojpa.entity;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -18,7 +20,7 @@ public class Employee {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthday; // 生日
-
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id")
     // @PrimaryKeyJoinColumn(name = "employee_id", referencedColumnName = "address_id")

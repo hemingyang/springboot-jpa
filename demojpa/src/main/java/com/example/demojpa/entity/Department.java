@@ -1,6 +1,9 @@
 package com.example.demojpa.entity;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.List;
 
 @Entity
@@ -12,7 +15,7 @@ public class Department {
     private Long id; // 主键ID
 
     private String name; // 部门名称
-
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "department_id")
     /**
