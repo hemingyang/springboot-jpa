@@ -2,7 +2,6 @@ package com.example.demojpa.entity;
 
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "item")
@@ -19,7 +18,7 @@ public class Item {
     @Column
     private  String description;
 
-    @OneToMany(targetEntity = com.example.demojpa.entity.Items.class)
+   /* @OneToMany(targetEntity = com.example.demojpa.entity.Items.class)
    private List Items;
 
     public List getItems() {
@@ -28,7 +27,7 @@ public class Item {
 
     public void setItems(List items) {
         Items = items;
-    }
+    }*/
 
     public Integer getId() {
         return id;

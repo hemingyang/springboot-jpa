@@ -3,13 +3,15 @@ package com.example.demojpa.web;
 
 import com.example.demojpa.entity.Item;
 import com.example.demojpa.repository.ItemRepository;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/items")
+@RequestMapping("/api/item")
+@Api(value = "/api/item", tags = "/api/item")
 public class ItemController {
 
     @Autowired

@@ -4,7 +4,7 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/harry?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://localhost:3306/harry?useUnicode=true&characterEncoding=utf8&useSSL=false
     username: root
     password: rootroot
   jpa:
@@ -14,4 +14,11 @@ spring:
     properties:
       hibernate:
         dialect: com.example.demojpa.util.MySQL5TableType
-        showSql: true
+    show-sql: true
+
+logging:
+  pattern:
+    file: "%d %-5level [%thread] %logger{0} : %msg%n"
+  level:
+    org.springframework.web: DEBUG
+    guru.springframework.controllers: DEBUG

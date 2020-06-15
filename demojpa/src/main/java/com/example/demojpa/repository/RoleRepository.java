@@ -1,10 +1,10 @@
 package com.example.demojpa.repository;
 
-import com.example.demojpa.entity.Item;
+import com.example.demojpa.entity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 /**
  * 继承jpa
  */
-public interface ItemRepository extends JpaRepository<Item ,Integer> {
+public interface RoleRepository extends JpaRepository<Role,Long> {
 
 }
