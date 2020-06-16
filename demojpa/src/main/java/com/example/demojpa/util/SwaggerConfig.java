@@ -16,6 +16,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfig {
 
+	 private static final String SWAGGER_API_VERSION = "1.0";
+	    private static final String LICENSE_TEXT = "License";
+	    private static final String title = "WEB REST API";
+	    private static final String description = "RESTful API for WEB";
 
     @Bean
     public Docket productApi() {
@@ -23,31 +27,17 @@ public class SwaggerConfig {
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.example.demojpa.web"))
                 .paths(PathSelectors.any())
-                .build();
+                .build().apiInfo(apiInfo());
     }
 
-    /*private ApiInfo metaInfo() {
-
-        ApiInfo apiInfo = new ApiInfo(
-                "Spring Boot Swagger Example API",
-                "Spring Boot Swagger Example API for Youtube",
-                "1.0",
-                "Terms of Service",
-                new Contact("TechPrimers", "https://www.baidu.com",
-                        "hemingyangyang@gmail.com"),
-                "Apache License Version 2.0",
-                "https://www.apache.org/licesen.html"
-        );
-
-        return apiInfo;
-    }*/
-
-    private ApiInfo apiInFo() {
+    private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("SwaggerUI演示")
-                .description("mall-tiny")
-                .license("macro")
-                .version("2.0")
+                .title(title)
+                .description(description)
+                .license(LICENSE_TEXT)
+                .version(SWAGGER_API_VERSION)
                 .build();
     }
+
+   
 }

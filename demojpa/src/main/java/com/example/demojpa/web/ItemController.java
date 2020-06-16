@@ -2,7 +2,8 @@ package com.example.demojpa.web;
 
 
 import com.example.demojpa.entity.Item;
-import com.example.demojpa.repository.ItemRepository;
+import com.example.demojpa.service.ItemService;
+
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,7 @@ import java.util.List;
 public class ItemController {
 
     @Autowired
-    private ItemRepository itemRepository;
+    private ItemService itemRepository;
 
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
@@ -24,24 +25,28 @@ public class ItemController {
         return  itemRepository.findAll();
 
     }
+    
+    @RequestMapping(value = "/one", method = RequestMethod.GET)
+    public Item findone(Integer id){
+
+        return  itemRepository.getItemtone(id);
+
+    }
 
     @RequestMapping(value = "/add",method = RequestMethod.POST ,produces = "application/json; charset=utf-8")
     public Item addItem(@RequestBody Item item) {
-        item.setId(null);
-        item.setChecked("33");
-        item.setDescription("wo");
-        return itemRepository.saveAndFlush(item);
+       
+        return itemRepository.saveItem(item);
     }
 
-    @RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     public Item updateItem(@RequestBody Item updatedItem, @PathVariable Integer id) {
-        updatedItem.setId(id);
-        return itemRepository.saveAndFlush(updatedItem);
+        return itemRepository.updateItem(updatedItem,id);
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
     public void deleteItem(@PathVariable Integer id) {
-        itemRepository.deleteById(id);
+        itemRepository.deleteItem(id);
     }
 
 
