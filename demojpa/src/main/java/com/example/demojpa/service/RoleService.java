@@ -23,7 +23,7 @@ public class RoleService {
     }
     
 
-	 public Role getDepartment(Long id) {
+	 public Role getRoleOne(Long id) {
 	        LOG.info("Getting the Department with given id:" + id);
 	        return repository.getOne(id);
 	    }
@@ -32,4 +32,7 @@ public class RoleService {
 	    	
 	    	return repository.findAll();
 	    }
+
+
+	
 }

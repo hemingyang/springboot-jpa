@@ -16,8 +16,8 @@ import java.util.List;
 
  */
 @RestController
-@RequestMapping("/api/web")
-@Api(value = "/api/web", tags = "/api/web")
+@RequestMapping("/api/address")
+@Api(value = "/api/address", tags = "/api/address")
 public class WebAddress {
 
 

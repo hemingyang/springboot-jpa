@@ -33,7 +33,7 @@ public class ItemController {
 
     }
 
-    @RequestMapping(value = "/add",method = RequestMethod.POST ,produces = "application/json; charset=utf-8")
+	@RequestMapping(value = "/add", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     public Item addItem(@RequestBody Item item) {
        
         return itemRepository.saveItem(item);
