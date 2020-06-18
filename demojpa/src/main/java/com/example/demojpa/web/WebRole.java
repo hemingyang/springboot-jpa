@@ -12,7 +12,14 @@ import com.example.demojpa.entity.Role;
 import com.example.demojpa.service.RoleService;
 
 import io.swagger.annotations.Api;
-
+/**
+ * 
+     * @ClassName: WebRole
+     * @Description: TODO(这里用一句话描述这个类的作用)
+     * @author hemin
+     * @date 2020年6月18日
+     *
+ */
 @RestController
 @RequestMapping("/api/role")
 @Api(value = "/api/role", tags = "/api/role")
@@ -31,5 +38,18 @@ public class WebRole {
 	public Role findRoleOne( @PathVariable Long id) {
 		
 		return repository.getRoleOne(id);
+	}
+	
+	/**
+	 * 
+	     * @Title: test
+	     * @Description: TODO(这里用一句话描述这个方法的作用)
+	     * @param @return 参数
+	     * @return String 返回类型
+	     * @throws
+	 */
+	public String test () {
+		return null;
+		
 	}
 }

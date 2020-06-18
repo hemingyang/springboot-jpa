@@ -6,7 +6,14 @@ import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.List;
-
+/*
+ * 
+     * @ClassName: Role
+     * @Description: TODO(这里用一句话描述这个类的作用)
+     * @author hemin
+     * @date 2020年6月18日
+     *
+ */
 @Entity
 @Table(name = "tbl_role")
 public class Role {

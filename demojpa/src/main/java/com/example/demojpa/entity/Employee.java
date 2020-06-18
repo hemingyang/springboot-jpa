@@ -7,7 +7,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
-
+/*
+ * 
+     * @ClassName: Employee
+     * @Description: TODO(这里用一句话描述这个类的作用)
+     * @author hemin
+     * @date 2020年6月18日
+     *
+ */
 @Entity
 @Table(name = "tbl_employee") // 指定关联的数据库的表名
 public class Employee {

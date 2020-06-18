@@ -2,7 +2,14 @@ package com.example.demojpa.entity;
 
 
 import javax.persistence.*;
-
+/*
+ * 
+     * @ClassName: Item
+     * @Description: TODO(这里用一句话描述这个类的作用)
+     * @author hemin
+     * @date 2020年6月18日
+     *
+ */
 @Entity
 @Table(name = "item")
 public class Item {

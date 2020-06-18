@@ -3,7 +3,14 @@ package com.example.demojpa.entity;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
+/*
+ * 
+     * @ClassName: Address
+     * @Description: TODO(这里用一句话描述这个类的作用)
+     * @author hemin
+     * @date 2020年6月18日
+     *
+ */
 @Entity
 @Table(name = "tbl_address")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})

@@ -11,7 +11,14 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-
+/*
+ * 
+     * @ClassName: SwaggerConfig
+     * @Description: TODO(这里用一句话描述这个类的作用)
+     * @author hemin
+     * @date 2020年6月18日
+     *
+ */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
