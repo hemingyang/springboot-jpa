@@ -1,5 +1,7 @@
 package com.example.jpa.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -8,7 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /*
- * 
+ *
      * @ClassName: Post
      * @Description: TODO(这里用一句话描述这个类的作用)
      * @author hemin
@@ -45,7 +47,7 @@ public class Post {
     @Column(name = "last_updated_at")
     private Date lastUpdatedAt = new Date();
 
-
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {
                 CascadeType.PERSIST,
