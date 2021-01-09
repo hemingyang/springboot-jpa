@@ -25,7 +25,7 @@ public class Aopconfig {
     /*?
             切点
      */
-    @Pointcut("execution(public * com.example.demojpa.service.*.*(..))")
+    @Pointcut("@annotation(com.example.demojpa.aop.LogInfo)")
     public void webLog(){}
     @Before("webLog()")
 

@@ -1,6 +1,7 @@
 package com.example.demojpa.web;
 
 
+import com.example.demojpa.aop.LogInfo;
 import com.example.demojpa.entity.*;
 import com.example.demojpa.repository.AddressRepository;
 import com.example.demojpa.repository.DepartmentRepository;
@@ -10,6 +11,9 @@ import com.example.demojpa.service.AddressService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -107,11 +111,22 @@ public class WebAddress {
         return addressService.getAddressCityId(city,id);
     }
 
-    @GetMapping(value = "/updateCity/")
+    @LogInfo
+    @GetMapping(value = "/updateCity")
     public void updateAddressCity(String city, Long id){
         city="02W7";
         id=12L;
          addressService.updateAddressCity(city,id);
+    }
+
+    @LogInfo
+    @GetMapping(value = "/listAddress")
+    public List<Address> getListAddress(){
+        //分页 默认根据id排序 page页数 seiz 条数
+        Pageable page=PageRequest.of(0, 10);
+        Page<Address> addresses=addressRepository.findAll(page);
+        List<Address> addressList=addresses.getContent();
+        return addressList;
     }
 
 }
