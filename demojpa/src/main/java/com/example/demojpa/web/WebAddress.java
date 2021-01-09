@@ -6,6 +6,7 @@ import com.example.demojpa.repository.AddressRepository;
 import com.example.demojpa.repository.DepartmentRepository;
 import com.example.demojpa.repository.EmployeeRepository;
 import com.example.demojpa.repository.RoleRepository;
+import com.example.demojpa.service.AddressService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 /*
- * 
+ *
      * @ClassName: WebAddress
      * @Description: TODO(这里用一句话描述这个类的作用)
      * @author hemin
@@ -35,6 +36,9 @@ public class WebAddress {
     @Autowired
     private EmployeeRepository employeeRepository;
 
+    @Autowired
+    private AddressService addressService;
+
 
     @ApiOperation(value = "addressAll",notes = "addressAll")
     @RequestMapping(value = "/addressAll",method = RequestMethod.GET )
@@ -42,7 +46,7 @@ public class WebAddress {
 
         return  addressRepository.findAll();
     }
-    
+
     @ApiOperation(value = "addresone",notes = "addresone")
     @RequestMapping(value = "/addresone/{id}",method = RequestMethod.GET )
     public Address addressone(@PathVariable Long id){
@@ -88,6 +92,26 @@ public class WebAddress {
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
     public void deleteAddress(@PathVariable Long id) {
         addressRepository.deleteById(id);
+    }
+
+    @GetMapping(value = "/getCity/")
+    public Address getAddressCity(String city){
+        city="027";
+        return addressService.getAddressCity(city);
+    }
+
+    @GetMapping(value = "/getCityId/")
+    public Address getAddressCityId(String city, Long id){
+        city="027";
+        id=12L;
+        return addressService.getAddressCityId(city,id);
+    }
+
+    @GetMapping(value = "/updateCity/")
+    public void updateAddressCity(String city, Long id){
+        city="02W7";
+        id=12L;
+         addressService.updateAddressCity(city,id);
     }
 
 }

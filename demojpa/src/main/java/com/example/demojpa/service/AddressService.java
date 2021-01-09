@@ -9,11 +9,12 @@ import org.springframework.stereotype.Service;
 
 import com.example.demojpa.entity.Address;
 import com.example.demojpa.repository.AddressRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class AddressService {
 
-	
+
 	private Logger LOG = LoggerFactory.getLogger(AddressRepository.class);
 
     private AddressRepository addressRepository;
@@ -27,11 +28,23 @@ public class AddressService {
 	        LOG.info("Getting the Address with given id:" + id);
 	        return addressRepository.getOne(id);
 	    }
-	    
+
 	    public List<Address> findAll(){
-	    	
+
 	    	return addressRepository.findAll();
 	    }
-	
-    
+
+	    public Address getAddressCity(String city){
+    			return  addressRepository.getAddressByCity( city);
+		}
+
+	public Address getAddressCityId(String city,Long id){
+		return  addressRepository.getAddressBycityID( city ,id);
+	}
+
+	@Transactional
+	public void updateAddressCity(String city,Long id){
+		  addressRepository.updateBbycity( city ,id);
+	}
+
 }
